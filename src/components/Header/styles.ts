@@ -16,6 +16,10 @@ export const HeaderContainer = styled.header`
   & a {
     color: ${({ theme }) => theme.colors['base-light-color']};
   }
+
+  & h1 {
+    width: 12rem;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -58,7 +62,7 @@ export const SearchContainer = styled.div`
   }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.nav`
   width: 12rem;
   height: 100%;
 

@@ -12,6 +12,8 @@ export const lightTheme = {
     'base-light-color': '#FFFF',
     '1-color': '#1dd3af',
     '2-color': '#bcdd7e',
+    '3-color': '#6b4d9b',
+    'yellow-color': '#e2f41a',
   },
   fonts: {
     family: {

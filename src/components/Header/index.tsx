@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <a href="/">
-        <h1>LOGO</h1>
+        <h1>GoMovies</h1>
       </a>
       <SearchContainer>
         <input type="text" placeholder="Pesquisa" />
@@ -18,9 +18,9 @@ export const Header = () => {
         </button>
       </SearchContainer>
       <Menu>
-        <a href="favorites" title="Acessar os Favoritos">
+        <button title="Acessar os Favoritos">
           <AiFillHeart />
-        </a>
+        </button>
         <button title="Acessar o Carrinho">
           <IoIosCart />
           <strong>3</strong>
