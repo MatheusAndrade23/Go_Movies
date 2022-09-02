@@ -2,6 +2,7 @@ import {
   FullMovieCardContainer,
   ImageContainer,
   MovieInfoContainer,
+  FavoriteButton,
 } from './styles';
 
 import { AiFillHeart, AiOutlineHeart, AiFillStar } from 'react-icons/ai';
@@ -11,6 +12,9 @@ export const FullMovieCard = () => {
 
   return (
     <FullMovieCardContainer>
+      <FavoriteButton>
+        {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
+      </FavoriteButton>
       <ImageContainer>
         <img src="https://images.pexels.com/photos/13265635/pexels-photo-13265635.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
       </ImageContainer>

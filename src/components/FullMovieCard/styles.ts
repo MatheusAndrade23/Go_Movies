@@ -1,23 +1,22 @@
 import styled, { css } from 'styled-components';
 
 export const FullMovieCardContainer = styled.div`
-  border-bottom: none;
   width: 18rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 
-  & button {
+  & button:last-child {
     width: 100%;
     border-radius: 2px;
     border: none;
     padding: 0.7rem;
-    margin-top: 0.5rem;
 
     color: ${({ theme }) => theme.colors['base-light-color']};
     background-color: ${({ theme }) => theme.colors['3-color']};
@@ -46,7 +45,7 @@ export const MovieInfoContainer = styled.div`
   justify-content: space-evenly;
   width: 100%;
 
-  height: 8rem;
+  height: 8.5rem;
 
   color: ${({ theme }) => theme.colors['base-subtitle']};
 
@@ -80,4 +79,17 @@ export const MovieInfoContainer = styled.div`
     font-size: ${({ theme }) => theme.fonts.sizes.small2};
     font-weight: bold;
   }
+`;
+
+export const FavoriteButton = styled.button`
+  background-color: transparent;
+  border: none;
+
+  color: ${({ theme }) => theme.colors['red-color']};
+
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  font-size: 2rem;
 `;
