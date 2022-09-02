@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%; //use "rem" as px
+    font-size: 62.5%; //use "rem" as px -> 1px = 0.1rem
     height: 100vh;
   }
 
