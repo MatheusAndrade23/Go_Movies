@@ -18,6 +18,7 @@ export const darkTheme = {
     // '5-color': '#8047F8',
     // '6-color': '#EBE5F9',
     'red-color': '#ff0e00',
+    'blue-color': '#4982e5',
     // 'green-color': '#008000',
   },
   fonts: {

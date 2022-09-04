@@ -17,7 +17,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     height: 100vh;
     font-size: 1.6rem;
-    background-color: ${({ theme }) => theme.colors['base-light-color']}
+    background-color: ${({ theme }) => theme.colors['base-light-color']};
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

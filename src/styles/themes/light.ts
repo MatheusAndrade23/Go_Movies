@@ -15,6 +15,7 @@ export const lightTheme = {
     '3-color': '#6b4d9b',
     'yellow-color': '#e2f41a',
     'red-color': '#ff0e00',
+    'blue-color': '#4982e5',
   },
   fonts: {
     family: {
