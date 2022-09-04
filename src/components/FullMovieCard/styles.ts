@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 
+import { buttonLegend } from '../HalfMovieCard/styles';
+
 export const FullMovieCardContainer = styled.div`
   width: 18rem;
+  min-width: 18rem;
 
   display: flex;
   flex-direction: column;
@@ -26,16 +29,39 @@ export const FullMovieCardContainer = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
+interface ImageContainerProps {
+  srcImgBackground: string;
+}
+
+export const MoviePoster = styled.div`
   overflow: hidden;
   height: 18rem;
   width: 100%;
 
+  position: relative;
+
   border: 1px solid ${({ theme }) => theme.colors['base-label']};
 
+  display: flex;
+  justify-content: center;
+
   & img {
-    height: 40rem;
+    height: 100%;
+    position: absolute;
+    border: 1px solid ${({ theme }) => theme.colors['base-hover']};
   }
+`;
+
+export const ImageContainer = styled.div<ImageContainerProps>`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  background-image: ${({ srcImgBackground }) => `url(${srcImgBackground})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 `;
 
 export const MovieInfoContainer = styled.div`
@@ -44,13 +70,22 @@ export const MovieInfoContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  text-align: center;
+  padding: 0 1rem;
 
-  height: 8.5rem;
+  height: 10rem;
 
   color: ${({ theme }) => theme.colors['base-subtitle']};
 
   border-left: 2px solid ${({ theme }) => theme.colors['base-hover']};
   border-right: 2px solid ${({ theme }) => theme.colors['base-hover']};
+
+  & h4 {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   & div {
     display: flex;
@@ -90,6 +125,7 @@ export const FavoriteButton = styled.button`
   position: absolute;
   right: 1rem;
   top: 1rem;
+  z-index: 10;
 
   font-size: 2rem;
 `;

@@ -3,26 +3,41 @@ import {
   ImageContainer,
   MovieInfoContainer,
   FavoriteButton,
+  MoviePoster,
 } from './styles';
+
+import { MovieProps } from '../../pages/Home';
 
 import { AiFillHeart, AiOutlineHeart, AiFillStar } from 'react-icons/ai';
 
-export const FullMovieCard = () => {
+export const FullMovieCard = ({
+  title,
+  id,
+  vote_average,
+  poster_path,
+}: MovieProps) => {
   const isFavorite = true;
 
   return (
     <FullMovieCardContainer>
-      <FavoriteButton>
+      <FavoriteButton
+        title={isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
+      >
         {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
       </FavoriteButton>
-      <ImageContainer>
-        <img src="https://images.pexels.com/photos/13265635/pexels-photo-13265635.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
-      </ImageContainer>
+      <MoviePoster>
+        <ImageContainer
+          srcImgBackground={`https://image.tmdb.org/t/p/w220_and_h330_face/${poster_path}`}
+        />
+        <img
+          src={`https://image.tmdb.org/t/p/w220_and_h330_face/${poster_path}`}
+        />
+      </MoviePoster>
       <MovieInfoContainer>
-        <h4>Nome do Filme</h4>
+        <h4>{title}</h4>
         <div>
           <AiFillStar />
-          <strong>7</strong>
+          <strong>{vote_average}</strong>
           <span>Gênero</span>
         </div>
         <p>R$ 79,99</p>
