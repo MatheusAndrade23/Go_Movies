@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
 
+import { buttonLegend } from '../HalfMovieCard/styles';
+
 export const HeaderContainer = styled.header`
   width: 100%;
-  padding: 0.5rem 3rem;
+  padding: 3rem;
   margin: 0 auto;
+  height: 7rem;
 
   display: flex;
   align-items: center;
@@ -47,6 +50,9 @@ export const SearchContainer = styled.div`
   }
 
   & button {
+    position: relative;
+    ${buttonLegend()}
+
     border: none;
     background-color: transparent;
     color: ${({ theme }) => theme.colors['base-text']};
@@ -87,6 +93,8 @@ export const Menu = styled.nav`
     border: none;
     background-color: transparent;
     color: ${({ theme }) => theme.colors['base-light-color']};
+
+    ${buttonLegend()}
 
     & strong {
       display: flex;
