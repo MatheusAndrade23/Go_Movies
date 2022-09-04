@@ -1,15 +1,29 @@
 import { HalfMovieCardContainer } from './styles';
 
+import { IoCartSharp } from 'react-icons/io5';
 import { IoMdTrash } from 'react-icons/io';
 
-export const HalfMovieCard = () => {
+interface HalfMovieCardProps {
+  model?: string;
+  size?: string;
+}
+
+export const HalfMovieCard = ({
+  model = 'standard',
+  size = 'normal',
+}: HalfMovieCardProps) => {
   return (
-    <HalfMovieCardContainer>
+    <HalfMovieCardContainer model={model} size={size}>
       <img src="https://images.pexels.com/photos/13265635/pexels-photo-13265635.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
       <span>Nome do Filme</span>
-      <span>1</span>
+      {model === 'standard' && <span>1</span>}
       <span>R$ 9,99</span>
-      <button>
+      {model === 'secondary' && (
+        <button action-title="Adicionar ao Carrinho">
+          <IoCartSharp />
+        </button>
+      )}
+      <button action-title="Remover do Carrinho">
         <IoMdTrash />
       </button>
     </HalfMovieCardContainer>
