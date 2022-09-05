@@ -39,6 +39,10 @@ export const CartInfoContainer = styled.div`
     background-color: ${({ theme }) => theme.colors['3-color']};
     font-size: ${({ theme }) => theme.fonts.sizes.medium};
     font-weight: bold;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 `;
 
@@ -75,5 +79,19 @@ export const MoviesContainer = styled.div`
 
   & div:not(:last-child) {
     border-bottom: 2px solid ${({ theme }) => theme.colors['base-label']};
+  }
+`;
+
+export const EmptyCartContainer = styled.div`
+  width: 100%;
+  min-height: 16.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & h3 {
+    font-size: ${({ theme }) => theme.fonts.sizes.small4};
+    color: ${({ theme }) => theme.colors['base-label']};
   }
 `;

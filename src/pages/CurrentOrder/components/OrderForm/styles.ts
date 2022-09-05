@@ -35,6 +35,14 @@ export const OrderInfoForm = styled.form`
       font-weight: bold;
       color: ${({ theme }) => theme.colors['base-hover']};
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      border-color: ${({ theme }) => theme.colors['3-color']};
+    }
   }
 
   & div {
@@ -61,5 +69,40 @@ export const OrderInfoForm = styled.form`
     & input:nth-child(2) {
       width: 70%;
     }
+  }
+`;
+
+export const Validation = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: ${({ theme }) => theme.fonts.sizes.small3};
+  justify-content: space-between;
+  margin-top: 10px;
+
+  @media (max-width: 680px) {
+    justify-content: center;
+  }
+`;
+
+interface FieldValidationProps {
+  valid: boolean;
+}
+
+export const FieldValidation = styled.p<FieldValidationProps>`
+  width: max-content;
+  min-width: 50%;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  font-weight: bold;
+
+  color: ${({ theme, valid }) =>
+    !valid ? theme.colors['red-color'] : theme.colors['green-color']};
+
+  & svg {
+    margin-left: 10px;
+    font-size: 1.8rem;
   }
 `;
