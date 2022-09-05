@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const OrderFormContainer = styled.div`
   width: 100%;
   max-width: 50rem;
-  padding: 2rem 4rem;
+  padding: 2rem 1rem;
 
   display: flex;
   flex-direction: column;
@@ -77,12 +77,9 @@ export const Validation = styled.div`
   display: flex;
   flex-flow: row wrap;
   font-size: ${({ theme }) => theme.fonts.sizes.small3};
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem 2rem;
   margin-top: 10px;
-
-  @media (max-width: 680px) {
-    justify-content: center;
-  }
 `;
 
 interface FieldValidationProps {
@@ -91,7 +88,6 @@ interface FieldValidationProps {
 
 export const FieldValidation = styled.p<FieldValidationProps>`
   width: max-content;
-  min-width: 50%;
   margin: 5px 0;
   display: flex;
   align-items: center;

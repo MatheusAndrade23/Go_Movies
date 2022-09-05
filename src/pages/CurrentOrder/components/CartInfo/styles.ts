@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const CartInfoContainer = styled.div`
   width: 100%;
   max-width: 50rem;
-  padding: 2rem 4rem;
+  padding: 2rem 1rem;
   margin-top: 6.2rem;
 
   display: flex;
@@ -64,8 +64,16 @@ export const CartInfoHeader = styled.div`
   }
 
   & span:nth-child(3) {
-    margin-left: 5.5rem;
+    margin-left: 22%;
     margin-right: 0.5rem;
+
+    @media (max-width: 480px) {
+      margin-left: 15%;
+    }
+  }
+
+  @media (max-width: 380px) {
+    font-size: ${({ theme }) => theme.fonts.sizes.small3};
   }
 `;
 

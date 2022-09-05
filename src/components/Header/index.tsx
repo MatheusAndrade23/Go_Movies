@@ -1,6 +1,7 @@
 import { HeaderContainer, SearchContainer, Menu } from './styles';
 
 import { useState, useContext } from 'react';
+import { OrdersContext } from '../../providers/OrdersProvider';
 
 import { SideMenu } from '../SideMenu';
 
@@ -8,8 +9,6 @@ import { BsSearch } from 'react-icons/bs';
 import { IoIosCart } from 'react-icons/io';
 import { ImHistory } from 'react-icons/im';
 import { AiFillHeart } from 'react-icons/ai';
-
-import { OrdersContext } from '../../providers/OrdersProvider';
 
 export const Header = () => {
   const { favorites, cart } = useContext(OrdersContext);
@@ -61,7 +60,10 @@ export const Header = () => {
           <IoIosCart />
           {cart.length > 0 && <strong>{cart.length}</strong>}
         </button>
-        <button action-title="Acessar o Histórico">
+        <button
+          action-title="Acessar o Histórico"
+          onClick={() => (window.location.href = `/history`)}
+        >
           <ImHistory />
         </button>
       </Menu>

@@ -90,6 +90,7 @@ export const ordersReducer = (state: any, action: any) => {
       const { payload } = action;
       toast.success('Compra finalizada!');
       return {
+        ...state,
         completedOrders: [...completedOrders, { ...payload }],
         currentOrder: {
           cart: [],

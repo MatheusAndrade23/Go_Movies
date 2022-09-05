@@ -19,7 +19,7 @@ interface OrderFormProps {
 
 export const OrderForm = ({ completeOrder }: OrderFormProps) => {
   const [cepInfo, setCepInfo] = useState({ estate: '', city: '' });
-  const { register, handleSubmit, watch } = useFormContext();
+  const { register, handleSubmit, watch, formState } = useFormContext();
 
   const { estate, city } = cepInfo;
 

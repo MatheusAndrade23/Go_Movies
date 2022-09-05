@@ -71,7 +71,12 @@ export const HalfMovieCardContainer = styled.div<HalfMovieCardContainerProps>`
     & img {
       height: ${size === 'normal' ? '6rem' : '3rem'};
       width: ${size === 'normal' ? '7.5rem' : '3.5rem'};
+      margin-right: 1rem;
       border: 1px solid ${({ theme }) => theme.colors['base-text']};
+
+      @media (max-width: 480px) {
+        width: ${size === 'normal' && '5.5rem'};
+      }
     }
 
     & svg {
@@ -86,8 +91,9 @@ export const HalfMovieCardContainer = styled.div<HalfMovieCardContainerProps>`
     }
 
     & span:nth-child(2) {
-      margin-left: ${size === 'normal' ? '-6rem' : '-1.7rem'};
-      /* width: ${size === 'normal' ? '30%' : '30%'}; */
+      margin-left: ${size === 'normal' ? '-4rem' : '-1.7rem'};
+      text-align: left;
+      width: ${size === 'normal' ? '25%' : '30%'};
     }
   `}
 `;

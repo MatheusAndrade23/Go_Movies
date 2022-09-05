@@ -13,7 +13,9 @@ export interface OrderProps {
   name: string;
   email: string;
   phoneNumber: string;
-  cpf: string;
+  CPF: string;
+  city: string;
+  estate: string;
 }
 
 interface OrdersContextProps {
@@ -58,6 +60,16 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
+
+      return {
+        favorites: [],
+        favoritesId: [],
+        completedOrders: [],
+        currentOrder: {
+          cart: [],
+          totalPrice: 0,
+        },
+      };
     },
   );
 

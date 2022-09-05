@@ -8,6 +8,7 @@
     "date-fns": "^2.29.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
     "react-hook-form": "^7.34.2",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.3.0",
@@ -43,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/react-input-mask": "^3.0.1",
     "@types/styled-components": "^5.1.26",

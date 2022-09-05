@@ -29,11 +29,13 @@ const newCompleteOrderFormSchema = zod.object({
     ),
   address: zod.string().min(1),
   name: zod.string().min(1),
-  cpf: zod
+  CPF: zod
     .string()
     .regex(
       /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/,
     ),
+  city: zod.string(),
+  estate: zod.string(),
 });
 
 export type NewCompleteOrderData = zod.infer<typeof newCompleteOrderFormSchema>;
@@ -48,8 +50,10 @@ export const CurrentOrder = () => {
       phoneNumber: '',
       email: '',
       address: '',
-      cpf: '',
+      CPF: '',
       name: '',
+      city: '',
+      estate: '',
     },
   });
 
