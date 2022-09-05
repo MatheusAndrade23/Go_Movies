@@ -10,6 +10,8 @@ export const ThemeSwitcherContainer = styled.label`
   border-radius: 22px;
   background-color: ${({ theme }) => theme.colors['base-button']};
   cursor: pointer;
+  z-index: 99;
+
   span {
     display: block;
     width: 30px;
