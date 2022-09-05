@@ -27,5 +27,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 'off',
     'no-undef': 'off',
+    'no-case-declarations': 'off',
+    'no-useless-escape': 'off',
   },
 };
