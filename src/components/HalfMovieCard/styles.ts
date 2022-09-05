@@ -16,7 +16,7 @@ export const buttonLegend = () => css`
     top: calc(100% + 0.7rem);
     transform: rotate(45deg);
     cursor: auto;
-    z-index: 10;
+    z-index: 300;
   }
 
   &::before {
@@ -29,7 +29,7 @@ export const buttonLegend = () => css`
     top: calc(100% + 1rem);
     width: max-content;
     padding: 0.7rem;
-    z-index: 10;
+    z-index: 300;
 
     background-color: ${({ theme }) => theme.colors['base-text']};
     color: ${({ theme }) => theme.colors['base-light-color']};
@@ -86,7 +86,16 @@ export const HalfMovieCardContainer = styled.div<HalfMovieCardContainerProps>`
     }
 
     & span:nth-child(2) {
-      margin-left: ${size === 'normal' ? '-3rem' : '-1.7rem'};
+      margin-left: ${size === 'normal' ? '-6rem' : '-1.7rem'};
+      /* width: ${size === 'normal' ? '30%' : '30%'}; */
     }
   `}
+`;
+
+export const MovieTitle = styled.span`
+  width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 `;

@@ -102,8 +102,8 @@ export const Menu = styled.nav`
       justify-content: center;
 
       position: absolute;
-      top: -7px;
-      right: -11px;
+      bottom: 0.5rem;
+      left: 1.5rem;
 
       color: ${({ theme }) => theme.colors['base-text']};
       background-color: ${({ theme }) => theme.colors['2-color']};

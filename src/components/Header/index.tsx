@@ -1,6 +1,6 @@
 import { HeaderContainer, SearchContainer, Menu } from './styles';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import { SideMenu } from '../SideMenu';
 
@@ -9,7 +9,12 @@ import { IoIosCart } from 'react-icons/io';
 import { ImHistory } from 'react-icons/im';
 import { AiFillHeart } from 'react-icons/ai';
 
+import { OrdersContext } from '../../providers/OrdersProvider';
+
 export const Header = () => {
+  const { favorites, cart } = useContext(OrdersContext);
+
+  const [search, setSearch] = useState('');
   const [showCartMenu, setShowCartMenu] = useState(false);
   const [showFavoritesMenu, setShowFavoritesMenu] = useState(false);
 
@@ -23,14 +28,21 @@ export const Header = () => {
     setShowFavoritesMenu((state) => !state);
   };
 
+  const getSearchValue = (e: any) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <HeaderContainer>
       <a href="/">
         <h1>GoMovies</h1>
       </a>
       <SearchContainer>
-        <input type="text" placeholder="Pesquisa" />
-        <button action-title="Pesquisar">
+        <input type="text" placeholder="Pesquisa" onChange={getSearchValue} />
+        <button
+          action-title="Pesquisar"
+          onClick={() => (window.location.href = `/search/${search}`)}
+        >
           <BsSearch />
         </button>
       </SearchContainer>
@@ -40,30 +52,21 @@ export const Header = () => {
           onClick={handleChangeFavoritesMenuVisibility}
         >
           <AiFillHeart />
+          {favorites.length > 0 && <strong>{favorites.length}</strong>}
         </button>
         <button
           action-title="Acessar o Carrinho"
           onClick={handleChangeCartMenuVisibility}
         >
           <IoIosCart />
-          <strong>3</strong>
+          {cart.length > 0 && <strong>{cart.length}</strong>}
         </button>
         <button action-title="Acessar o Histórico">
           <ImHistory />
         </button>
       </Menu>
-      <SideMenu show={showCartMenu} {...cartSideMenuConfig} />
-      <SideMenu show={showFavoritesMenu} {...favoritesSideMenuConfig} />
+      <SideMenu show={showCartMenu} type="cart" />
+      <SideMenu show={showFavoritesMenu} type="favorites" />
     </HeaderContainer>
   );
-};
-
-const favoritesSideMenuConfig = {
-  title: 'Meus Favoritos',
-  movieCardModel: 'secondary',
-};
-
-const cartSideMenuConfig = {
-  title: 'Meus Carrinho',
-  cartInfo: true,
 };

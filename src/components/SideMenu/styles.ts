@@ -63,6 +63,14 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  & > div {
+    padding: 1rem 0;
+  }
+
+  & > div:not(:last-child) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors['base-hover']};
+  }
 `;
 
 export const CartInfo = styled.div`
@@ -86,4 +94,20 @@ export const CompleteOrderButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const ListEmpty = styled.div`
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  & h3 {
+    font-size: ${({ theme }) => theme.fonts.sizes.small3};
+    color: ${({ theme }) => theme.colors['base-label']};
+  }
 `;
