@@ -22,7 +22,7 @@ export const Search = () => {
     (async () => {
       try {
         const searchMovies = await db.get(
-          `search/movie/${config.requestConfig}&query=${search}`,
+          `search/movie/${config.requestConfig}&query=${search}/`,
         );
 
         const searchMoviesData = searchMovies.data.results;
