@@ -14,6 +14,7 @@ export const App = () => {
         <ToastContainer
           autoClose={3000}
           pauseOnHover={false}
+          position="top-left"
           style={{ width: 'max-content' }}
         />
       </ThemeProvider>
