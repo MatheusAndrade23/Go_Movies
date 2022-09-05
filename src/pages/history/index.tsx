@@ -25,6 +25,9 @@ export const History = () => {
 
   return (
     <HistoryContainer>
+      {completedOrders.length === 0 && (
+        <h2>Você ainda não completou nenhum pedido!</h2>
+      )}
       {completedOrders.map((order) => (
         <HistoryCard key={order.id} title="Clique para ver os filmes comprados">
           <summary>

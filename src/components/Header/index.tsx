@@ -8,7 +8,7 @@ import { SideMenu } from '../SideMenu';
 import { BsSearch } from 'react-icons/bs';
 import { IoIosCart } from 'react-icons/io';
 import { ImHistory } from 'react-icons/im';
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineMenu } from 'react-icons/ai';
 
 export const Header = () => {
   const { favorites, cart } = useContext(OrdersContext);

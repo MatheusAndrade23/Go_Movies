@@ -5,6 +5,12 @@ export const HistoryContainer = styled.main`
   min-height: 80vh;
 
   padding: 3rem;
+
+  & h2 {
+    margin-top: 6rem;
+    color: ${({ theme }) => theme.colors['3-color']};
+    text-align: center;
+  }
 `;
 
 export const HistoryCard = styled.details`
@@ -36,11 +42,11 @@ export const HistoryCard = styled.details`
     height: 100%;
     align-items: center;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem 4rem;
     cursor: pointer;
 
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     background-color: ${({ theme }) => theme.colors['base-light-color']};
 
     & div {

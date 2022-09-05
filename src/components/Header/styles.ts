@@ -4,12 +4,14 @@ import { buttonLegend } from '../HalfMovieCard/styles';
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  padding: 3rem;
+  padding: 1rem 2rem;
   margin: 0 auto;
-  height: 7rem;
+  position: relative;
 
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
+  gap: 1rem 2rem;
   justify-content: space-between;
 
   background-color: ${({ theme }) => theme.colors['1-color']};
@@ -21,13 +23,25 @@ export const HeaderContainer = styled.header`
   }
 
   & h1 {
-    width: 12rem;
+    width: 15rem;
+    text-align: center;
+  }
+
+  & > div:first-child {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  @media (max-width: 820px) {
+    flex-direction: column;
   }
 `;
 
 export const SearchContainer = styled.div`
   width: 100%;
   max-width: 40rem;
+  min-width: 15rem;
 
   display: flex;
   align-items: center;
@@ -40,7 +54,9 @@ export const SearchContainer = styled.div`
 
   & input {
     border: none;
-    width: calc(100% - 2rem);
+    min-width: 10rem;
+    max-width: calc(100% - 2rem);
+    width: 100%;
     font-size: ${({ theme }) => theme.fonts.sizes.medium};
     color: ${({ theme }) => theme.colors['base-text']};
 
@@ -69,7 +85,7 @@ export const SearchContainer = styled.div`
 `;
 
 export const Menu = styled.nav`
-  width: 12rem;
+  width: 15rem;
   height: 100%;
 
   display: flex;
