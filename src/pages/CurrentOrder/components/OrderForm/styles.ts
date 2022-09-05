@@ -25,6 +25,7 @@ export const OrderInfoForm = styled.form`
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
     border-radius: 5px;
+    background-color: transparent;
 
     border: 2px solid ${({ theme }) => theme.colors['base-hover']};
     color: ${({ theme }) => theme.colors['base-text']};

@@ -5,6 +5,7 @@ import { Routes } from './routes';
 
 import { ThemeProvider } from './providers/ThemeProvider';
 import { OrdersProvider } from './providers/OrdersProvider';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
           position="top-left"
           style={{ width: 'max-content' }}
         />
+        <ThemeSwitcher />
       </ThemeProvider>
     </OrdersProvider>
   );

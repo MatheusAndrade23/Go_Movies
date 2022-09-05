@@ -59,6 +59,7 @@ export const SearchContainer = styled.div`
     width: 100%;
     font-size: ${({ theme }) => theme.fonts.sizes.medium};
     color: ${({ theme }) => theme.colors['base-text']};
+    background-color: transparent;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors['base-hover']};
