@@ -36,11 +36,9 @@ export const Home = () => {
     (async () => {
       try {
         const popular = await db.get(`/movie/popular${config.requestConfig}`);
-        const topRated = await db.get(
-          `/movie/top_rated${config.requestConfig}`,
-        );
+        const topRated = await db.get(`movie/top_rated${config.requestConfig}`);
         const now_playing = await db.get(
-          `/movie/now_playing${config.requestConfig}`,
+          `movie/now_playing${config.requestConfig}`,
         );
         const upcoming = await db.get(`/movie/upcoming${config.requestConfig}`);
 
