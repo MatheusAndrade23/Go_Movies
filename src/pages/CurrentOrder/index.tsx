@@ -1,6 +1,6 @@
 import { CurrentOrderContainer } from './styles';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { OrdersContext } from '../../providers/OrdersProvider';
 
 import { format } from 'date-fns';
@@ -14,6 +14,7 @@ import * as zod from 'zod';
 
 import { OrderForm } from './components/OrderForm';
 import { CartInfo } from './components/CartInfo';
+import { OrderCompletedCard } from './components/OrderCompletedCard';
 
 const newCompleteOrderFormSchema = zod.object({
   CEP: zod.string().regex(/^[0-9]{5}-[0-9]{3}$/),
@@ -41,6 +42,10 @@ const newCompleteOrderFormSchema = zod.object({
 export type NewCompleteOrderData = zod.infer<typeof newCompleteOrderFormSchema>;
 
 export const CurrentOrder = () => {
+  const [showCompletedOrderCard, setShowCompletedOrderCard] = useState({
+    active: false,
+    name: '',
+  });
   const { completeCurrentOrder, cart, totalPrice } = useContext(OrdersContext);
 
   const newOrderForm = useForm<NewCompleteOrderData>({
@@ -70,6 +75,7 @@ export const CurrentOrder = () => {
 
     completeCurrentOrder(newOrderData);
     reset();
+    setShowCompletedOrderCard({ active: true, name: data.name });
   };
 
   return (
@@ -77,6 +83,11 @@ export const CurrentOrder = () => {
       <FormProvider {...newOrderForm}>
         <OrderForm completeOrder={completeOrder} />
         <CartInfo />
+        <OrderCompletedCard
+          show={showCompletedOrderCard.active}
+          name={showCompletedOrderCard.name}
+          hidden={setShowCompletedOrderCard}
+        />
       </FormProvider>
     </CurrentOrderContainer>
   );
