@@ -8,6 +8,7 @@ import { db } from '../../services/api';
 import config from '../../config';
 
 import { Loading } from '../../components/Loading';
+import { toast } from 'react-toastify';
 
 export interface MovieProps {
   id: number;
@@ -51,6 +52,7 @@ export const Home = () => {
         setMovies(allMovies);
         setLoading(false);
       } catch (error) {
+        toast.error('Houve algum erro! Tente novamente mais tarde!');
         console.log(error);
       }
     })();

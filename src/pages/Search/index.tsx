@@ -11,6 +11,7 @@ import config from '../../config';
 
 import { Loading } from '../../components/Loading';
 import { FullMovieCard } from '../../components/FullMovieCard';
+import { toast } from 'react-toastify';
 
 export const Search = () => {
   const { search } = useParams();
@@ -29,6 +30,7 @@ export const Search = () => {
         setMovies(searchMoviesData);
         setLoading(false);
       } catch (error) {
+        toast.error('Houve algum erro! Tente novamente mais tarde!');
         console.log(error);
       }
     })();
@@ -40,7 +42,11 @@ export const Search = () => {
         <Loading />
       ) : (
         <SearchContainer>
-          <h2>{`Resultados da sua pesquisa "${search}":`}</h2>
+          <h2>{`${
+            movies.length === 0
+              ? 'Nenhum resultado para a pesquisa:'
+              : 'Resultados para a pesquisa:'
+          }  "${search}"`}</h2>
           <MoviesContainer>
             {movies.map((movie: MovieProps) => (
               <FullMovieCard key={movie.id} {...movie} />
