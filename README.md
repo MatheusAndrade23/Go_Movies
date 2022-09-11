@@ -1,4 +1,4 @@
-<h1 align="center">📽️ Go Movies 🎞️</h1>
+<h1 align="center">🎞️ Go Movies 🎞️</h1>
 
 <div align="center">
  <img src="./github/homeImage.png" width="400px" alt="Home Image"/>
