@@ -35,7 +35,7 @@ _<h3>Pesquisando 🔎</h3>_
 
 <br>
 
-- ✔️ O Website é`responsivo`
+- ✔️ O Website é `responsivo`
 - ✔️ Possui `tema escuro`
 - ✔️ Possui `auto complete da cidade e do UF` baseado no CEP
 - ✔️ Possui uma página para ver `histórico de pedidos`
