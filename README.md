@@ -1,7 +1,7 @@
 <h1 align="center">🎞️ Go Movies 🎞️</h1>
 
 <div align="center">
- <img src="./github/homeImage.png" width="400px" alt="Home Image"/>
+ <img src="./github/cover.png" width="400px" alt="Home Image"/>
 </div>
 
 <h3 align="center">Um site de venda de filmes, feito com React + Bibliotecas e que consome a <a href="https://developers.themoviedb.org/3/">The Movie DB API</a>.</h3>
