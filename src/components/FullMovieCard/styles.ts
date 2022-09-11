@@ -117,6 +117,7 @@ export const MovieInfoContainer = styled.div`
 export const FavoriteButton = styled.button`
   background-color: transparent;
   border: none;
+  line-height: 0;
 
   color: ${({ theme }) => theme.colors['red-color']};
 

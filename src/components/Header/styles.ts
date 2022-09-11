@@ -51,6 +51,11 @@ export const SearchContainer = styled.div`
   border: 2px solid ${({ theme }) => theme.colors['base-hover']};
   border-radius: 5px;
   padding: 0.8rem 1.2rem;
+  transition: 0.5s;
+
+  &:hover {
+    border: 2px solid ${({ theme }) => theme.colors['3-color']};
+  }
 
   & input {
     border: none;
