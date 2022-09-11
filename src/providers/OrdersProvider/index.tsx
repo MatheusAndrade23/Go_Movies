@@ -60,6 +60,16 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
+
+      return {
+        favorites: [],
+        favoritesId: [],
+        completedOrders: [],
+        currentOrder: {
+          cart: [],
+          totalPrice: 0,
+        },
+      };
     },
   );
 

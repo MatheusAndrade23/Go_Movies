@@ -24,7 +24,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    const recoveredTheme = localStorage.getItem('@delivery-coffee/theme');
+    const recoveredTheme = localStorage.getItem('@go-movies/theme');
 
     if (recoveredTheme) {
       setTheme(recoveredTheme);
@@ -34,7 +34,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const changeTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    localStorage.setItem('@delivery-coffee/theme', newTheme);
+    localStorage.setItem('@go-movies/theme', newTheme);
   };
 
   return (
