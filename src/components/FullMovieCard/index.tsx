@@ -19,16 +19,20 @@ export const FullMovieCard = ({
   vote_average,
   poster_path,
 }: MovieProps) => {
-  const { addToFavorites, removeFromFavorites, favoritesId, addToCart } =
-    useContext(OrdersContext);
+  const {
+    addMovieToFavorites,
+    removeMovieFromFavorites,
+    favoritesId,
+    addMovieToCart,
+  } = useContext(OrdersContext);
 
   const isFavorite = favoritesId.includes(id);
 
   const handleManageFavorites = () => {
     if (isFavorite) {
-      removeFromFavorites(id);
+      removeMovieFromFavorites(id);
     } else {
-      addToFavorites({
+      addMovieToFavorites({
         title,
         id,
         vote_average,
@@ -37,8 +41,8 @@ export const FullMovieCard = ({
     }
   };
 
-  const handleAddToCart = () => {
-    addToCart({
+  const handleAddMovieToCart = () => {
+    addMovieToCart({
       title,
       id,
       vote_average,
@@ -69,7 +73,7 @@ export const FullMovieCard = ({
         </div>
         <p>R$ 9,99</p>
       </MovieInfoContainer>
-      <button onClick={handleAddToCart}>Adicionar</button>
+      <button onClick={handleAddMovieToCart}>Adicionar</button>
     </FullMovieCardContainer>
   );
 };

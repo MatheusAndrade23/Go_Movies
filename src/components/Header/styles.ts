@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { buttonLegend } from '../HalfMovieCard/styles';
+import { buttonSubtitle } from '../HalfMovieCard/styles';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -68,7 +68,8 @@ export const SearchContainer = styled.div`
 
   & button {
     position: relative;
-    ${buttonLegend()}
+
+    ${buttonSubtitle()}
 
     border: none;
     background-color: transparent;
@@ -111,7 +112,7 @@ export const Menu = styled.nav`
     background-color: transparent;
     color: ${({ theme }) => theme.colors['base-light-color']};
 
-    ${buttonLegend()}
+    ${buttonSubtitle()}
 
     & strong {
       display: flex;

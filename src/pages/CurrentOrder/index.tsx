@@ -73,9 +73,13 @@ export const CurrentOrder = () => {
       id: uuid(),
     };
 
+    setShowCompletedOrderCard({ active: true, name: data.name });
     completeCurrentOrder(newOrderData);
     reset();
-    setShowCompletedOrderCard({ active: true, name: data.name });
+  };
+
+  const closeCompletedOrderCard = () => {
+    setShowCompletedOrderCard({ active: false, name: '' });
   };
 
   return (
@@ -86,7 +90,7 @@ export const CurrentOrder = () => {
         <OrderCompletedCard
           show={showCompletedOrderCard.active}
           name={showCompletedOrderCard.name}
-          hidden={setShowCompletedOrderCard}
+          close={closeCompletedOrderCard}
         />
       </FormProvider>
     </CurrentOrderContainer>

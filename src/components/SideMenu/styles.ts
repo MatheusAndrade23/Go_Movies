@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { buttonLegend } from '../HalfMovieCard/styles';
+import { buttonSubtitle } from '../HalfMovieCard/styles';
 
 interface SideMenuContainerProps {
   show: boolean;
@@ -48,7 +48,7 @@ export const MenuTitle = styled.div`
     border-bottom: 2px solid ${({ theme }) => theme.colors['base-hover']};
     position: relative;
 
-    ${buttonLegend()}
+    ${buttonSubtitle()}
 
     &::after {
       right: 1rem;

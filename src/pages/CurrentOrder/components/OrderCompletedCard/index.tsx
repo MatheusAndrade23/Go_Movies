@@ -1,24 +1,19 @@
 import { OrderCompletedCardContainer, Card } from './styles';
 
-interface HiddenProps {
-  active: boolean;
-  name: '';
-}
-
 interface OderCompletedCardProps {
   show: boolean;
   name: string;
-  hidden: ({ active, name }: HiddenProps) => void;
+  close: () => void;
 }
 
 export const OrderCompletedCard = ({
   show,
   name,
-  hidden,
+  close,
 }: OderCompletedCardProps) => {
-  const handleHiddenCard = () => {
+  const handleCloseCard = () => {
     window.location.href = '/';
-    hidden({ active: false, name: '' });
+    close();
   };
 
   return (
@@ -29,7 +24,7 @@ export const OrderCompletedCard = ({
             <h2>{`Obrigado ${name}!`}</h2>
             <p>Sua compra foi finalizada com sucesso!</p>
             <button
-              onClick={handleHiddenCard}
+              onClick={handleCloseCard}
               title="Clique para ir para a loja!"
             >
               Ir para loja

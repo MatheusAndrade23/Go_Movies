@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { buttonLegend } from '../HalfMovieCard/styles';
-
 export const FullMovieCardContainer = styled.div`
   width: 18rem;
   min-width: 18rem;

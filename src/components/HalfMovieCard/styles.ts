@@ -5,7 +5,7 @@ interface HalfMovieCardContainerProps {
   size: string;
 }
 
-export const buttonLegend = () => css`
+export const buttonSubtitle = () => css`
   &::after {
     content: '';
     visibility: hidden;
@@ -64,7 +64,7 @@ export const HalfMovieCardContainer = styled.div<HalfMovieCardContainerProps>`
       color: ${({ theme }) => theme.colors['base-text']};
     }
 
-    ${buttonLegend()}
+    ${buttonSubtitle()}
   }
 
   ${({ theme, size }) => css`

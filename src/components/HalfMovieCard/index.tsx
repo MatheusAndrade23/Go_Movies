@@ -23,21 +23,21 @@ export const HalfMovieCard = ({
   poster_path,
   vote_average,
 }: HalfMovieCardProps) => {
-  const { removeFromFavorites, removeFromCart, addToCart } =
+  const { removeMovieFromFavorites, removeMovieFromCart, addMovieToCart } =
     useContext(OrdersContext);
 
   const srcImg = `https://image.tmdb.org/t/p/w220_and_h330_face/${poster_path}`;
 
-  const handleRemoveFromFavorites = () => {
-    removeFromFavorites(id);
+  const handleRemoveMovieFromFavorites = () => {
+    removeMovieFromFavorites(id);
   };
 
-  const handleRemoveFromCart = () => {
-    removeFromCart(id);
+  const handleRemoveMovieFromCart = () => {
+    removeMovieFromCart(id);
   };
 
-  const handleAddToCart = () => {
-    addToCart({
+  const handleAddMovieToCart = () => {
+    addMovieToCart({
       title,
       id,
       vote_average,
@@ -52,21 +52,24 @@ export const HalfMovieCard = ({
       {model === 'standard' && <span>1</span>}
       <span>R$ 9,99</span>
       {model === 'secondary' && (
-        <button action-title="Adicionar ao Carrinho" onClick={handleAddToCart}>
+        <button
+          action-title="Adicionar ao Carrinho"
+          onClick={handleAddMovieToCart}
+        >
           <IoCartSharp />
         </button>
       )}
       {model === 'secondary' ? (
         <button
           action-title="Remover dos Favoritos"
-          onClick={handleRemoveFromFavorites}
+          onClick={handleRemoveMovieFromFavorites}
         >
           <IoMdTrash />
         </button>
       ) : (
         <button
           action-title="Remover do Carrinho"
-          onClick={handleRemoveFromCart}
+          onClick={handleRemoveMovieFromCart}
         >
           <IoMdTrash />
         </button>

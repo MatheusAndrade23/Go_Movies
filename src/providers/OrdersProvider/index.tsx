@@ -23,11 +23,11 @@ interface OrdersContextProps {
   completedOrders: OrderProps[];
   currentOrder: object;
   favoritesId: number[];
-  addToFavorites: (movie: MovieProps) => void;
-  removeFromFavorites: (id: number) => void;
+  addMovieToFavorites: (movie: MovieProps) => void;
+  removeMovieFromFavorites: (id: number) => void;
   emptyFavoritesList: () => void;
-  addToCart: (movie: MovieProps) => void;
-  removeFromCart: (id: number) => void;
+  addMovieToCart: (movie: MovieProps) => void;
+  removeMovieFromCart: (id: number) => void;
   cart: MovieProps[];
   totalPrice: number;
   emptyCart: () => void;
@@ -60,16 +60,6 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
-
-      return {
-        favorites: [],
-        favoritesId: [],
-        completedOrders: [],
-        currentOrder: {
-          cart: [],
-          totalPrice: 0,
-        },
-      };
     },
   );
 
@@ -79,10 +69,15 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
     localStorage.setItem('@go-movies/orders', stateJSON);
   }, [ordersState]);
 
-  const { favorites, completedOrders, currentOrder, favoritesId } = ordersState;
-  const { cart, totalPrice } = currentOrder;
+  const {
+    favorites = [],
+    completedOrders = [],
+    currentOrder,
+    favoritesId = [],
+  } = ordersState;
+  const { cart = [], totalPrice } = currentOrder;
 
-  const addToFavorites = (movie: MovieProps) => {
+  const addMovieToFavorites = (movie: MovieProps) => {
     dispatch({
       type: 'ADD_TO_FAVORITES',
       payload: {
@@ -91,7 +86,7 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
     });
   };
 
-  const removeFromFavorites = (id: number) => {
+  const removeMovieFromFavorites = (id: number) => {
     dispatch({
       type: 'REMOVE_FROM_FAVORITES',
       payload: {
@@ -101,7 +96,9 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
   };
 
   const emptyFavoritesList = () => {
-    if (favorites.length === 0) {
+    const favoritesListIsEmpty = favorites.length === 0;
+
+    if (favoritesListIsEmpty) {
       toast.warning('A lista de favoritos já está vazia!');
       return;
     }
@@ -111,7 +108,7 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
     });
   };
 
-  const addToCart = (movie: MovieProps) => {
+  const addMovieToCart = (movie: MovieProps) => {
     const { id } = movie;
 
     const findMovieInCart = cart.filter((movie: MovieProps) => movie.id === id);
@@ -130,7 +127,7 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
     });
   };
 
-  const removeFromCart = (id: number) => {
+  const removeMovieFromCart = (id: number) => {
     dispatch({
       type: 'REMOVE_FROM_CART',
       payload: {
@@ -140,7 +137,9 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
   };
 
   const emptyCart = () => {
-    if (cart.length === 0) {
+    const cartIsEmpty = cart.length === 0;
+
+    if (cartIsEmpty) {
       toast.warning('O carrinho já está vazio!');
       return;
     }
@@ -166,11 +165,11 @@ export const OrdersProvider = ({ children }: OrdersContextProviderProps) => {
         favorites,
         completedOrders,
         currentOrder,
-        addToFavorites,
-        removeFromFavorites,
+        addMovieToFavorites,
+        removeMovieFromFavorites,
         emptyFavoritesList,
-        addToCart,
-        removeFromCart,
+        addMovieToCart,
+        removeMovieFromCart,
         cart,
         totalPrice,
         emptyCart,
