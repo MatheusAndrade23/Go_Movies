@@ -69,7 +69,7 @@ export const FullMovieCard = ({
         <div>
           <AiFillStar />
           <strong>{vote_average}</strong>
-          <span>Gênero</span>
+          {/* <span>Gênero</span> */}
         </div>
         <p>R$ 9,99</p>
       </MovieInfoContainer>

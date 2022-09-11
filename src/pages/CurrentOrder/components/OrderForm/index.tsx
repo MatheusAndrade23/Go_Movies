@@ -14,14 +14,14 @@ import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 
 import { dbCEP } from '../../../../services/api';
 import { NewCompleteOrderData } from '../../';
-import regex from '../../../../regex';
+
+import { getInputsValidation } from '../../../../utils/getInputsValidation';
 
 interface OrderFormProps {
   completeOrder: (data: NewCompleteOrderData) => void;
 }
 
 export const OrderForm = ({ completeOrder }: OrderFormProps) => {
-  const { cepRegex, cpfRegex } = regex;
   const [cepInfo, setCepInfo] = useState({ estate: '', city: '' });
   const { register, handleSubmit, watch } = useFormContext();
 
@@ -34,18 +34,14 @@ export const OrderForm = ({ completeOrder }: OrderFormProps) => {
   const email = watch('email');
   const phoneNumber = watch('phoneNumber');
 
-  const isNameValid = name.length > 0;
-  const isAddressValid = address.length > 0;
-  const isCepValid = cepRegex.test(cep);
-  const isCpfValid = cpfRegex.test(cpf);
-  const isEmailValid =
-    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi.test(
-      email,
-    );
-  const isPhoneNumberValid =
-    /^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$/gm.test(
-      phoneNumber,
-    );
+  const {
+    isNameValid,
+    isAddressValid,
+    isCepValid,
+    isCpfValid,
+    isEmailValid,
+    isPhoneNumberValid,
+  } = getInputsValidation(cep, cpf, address, name, email, phoneNumber);
 
   useEffect(() => {
     toast.info(
