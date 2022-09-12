@@ -16,7 +16,11 @@ export const App = () => {
           autoClose={3000}
           pauseOnHover={false}
           position="top-left"
-          style={{ width: 'max-content' }}
+          style={{
+            width: 'max-content',
+            textAlign: 'center',
+            maxWidth: '90%',
+          }}
         />
         <ThemeSwitcher />
       </ThemeProvider>
