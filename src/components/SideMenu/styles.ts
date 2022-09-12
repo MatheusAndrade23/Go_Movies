@@ -24,12 +24,16 @@ export const SideMenuContainer = styled.nav<SideMenuContainerProps>`
   top: 7rem;
   width: 100%;
   max-width: 29rem;
-  height: calc(100vh - 7rem);
+  height: calc(100vh - 100%);
   overflow-y: auto;
 
   transition: 0.5s;
 
   transform: ${({ show }) => !show && 'translateX(100%)'};
+
+  @media (max-width: 820px) {
+    top: 16rem;
+  }
 `;
 
 export const MenuTitle = styled.div`
