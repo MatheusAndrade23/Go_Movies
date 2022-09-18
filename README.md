@@ -4,7 +4,7 @@
  <img src="./github/cover.png" width="400px" alt="Home Image"/>
 </div>
 
-<h3 align="center">Um site de venda de filmes, feito com React + Bibliotecas e que consome a <a href="https://developers.themoviedb.org/3/">The Movie DB API</a>.</h3>
+<h3 align="center">Um site de venda de filmes, feito com React + Bibliotecas, que consome a <a href="https://developers.themoviedb.org/3/">The Movie DB API</a>.</h3>
 <h3 align="center"><a href="https://go-movies.vercel.app/">Clique aqui para visitar o site!</a></h3>
 
 ---
